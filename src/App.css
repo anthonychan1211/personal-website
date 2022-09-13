@@ -62,7 +62,6 @@ nav > ul {
 .menu-icon{
   display: flex;
   justify-content: end;
-  /* position: inherit; */
   padding-top: 2em; 
   padding-right: 3em
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ImageGallery from 'react-image-gallery';
 
-const Photo = ({ photoRef,forwardedRef }) => {
+const Photo = ({ forwardedRef }) => {
 
 const images = [];
 

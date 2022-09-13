@@ -7,10 +7,14 @@ const Contact = ({forwardedRef}) => {
     const [emailIsClicked, setEmailIsClicked] = useState(false)
     const [phoneIsClicked, setPhoneIsClicked] = useState(false)
     function copyEmailToClipboard(ref) {
-        console.log(ref.current.innerText);
-        navigator.clipboard.writeText(ref.current.innerText)
-        setEmailIsClicked(true)
-        setPhoneIsClicked(false)
+        try{
+            navigator.clipboard.writeText(ref.current.innerText)
+            setEmailIsClicked(true)
+            setPhoneIsClicked(false)
+        }
+        catch(err){
+            alert(err.message)
+        }
   };
   function copyPhoneToClipboard(ref) {
     console.log(ref.current.innerText);
@@ -25,14 +29,17 @@ const Contact = ({forwardedRef}) => {
                 <span ref={emailRef}><br/>anthonychan1211@gmail.com</span>
                 <button className="copy-button" onClick={()=>{copyEmailToClipboard(emailRef)}}>{emailIsClicked? 'Copied' : 'Copy'}</button>
                 <br/>
+                <br/>
                 Facebook: 
                 <br/>
                 <a href="https://www.facebook.com/anthonychan1211" target="_blank">https://www.facebook.com/anthonychan1211</a>
                 <br/>
+                <br/>
                 Instagram: 
                 <br/>
                 <a href="https://www.instagram.com/anthonycly/" target="_blank">https://www.instagram.com/anthonycly/</a>
-                
+                <br/>
+                <br/>
                 Phone:
                 
                     <span ref={phoneRef}> +852 9219 1211</span>

@@ -95,6 +95,8 @@ nav > ul {
   margin-top: min(4vw,15px);
   margin-right: 10px;
   opacity: .95;
+  font-weight: 900;
+  z-index: 1;
 }
 
 li {
@@ -131,15 +133,20 @@ li:hover{
   padding-top: min(5vw, 40px);
   width: fit-content;
   margin-right: 0;
+  margin-top: min(14vw,100px);
+}
+
+.icon-container{
+  display: flex;
 }
 
 .icon-container > img{
-  height: min(4vw, 30px);
-  width: min(4vw, 30px);
+  /* height: min(4vw, 30px); */
+  width: min(8vw, 60px);
   -webkit-filter: invert(100%);
   filter: invert(100%);
-  padding-right: min(5vw, 20px);
-  padding-top:min(3.5vw, 30px)
+  padding-right: min(8vw, 30px);
+  
 }
 .about-me-container{
   width: 90%;
@@ -164,7 +171,7 @@ li:hover{
 }
 .bio{
   text-align: justify;
-  font-size: min(4.5vw,24px);
+  font-size: min(4.5vw,28px);
   font-weight: 700;
   margin: 0em;
 }
@@ -193,9 +200,8 @@ li:hover{
 
 .music-container p, .photo-container p, .coding-container p, .contact-container p{
   text-align: justify;
-  font-size: min(4vw,22px);
+  font-size: min(5vw,28px);
   font-weight: 700;
-  text-align-last: left;
 }
 
 #masterclass-figure{
@@ -205,7 +211,6 @@ li:hover{
   margin-bottom: 10px;
 }
 figcaption{
-  font-style: italic;
   font-size: min(8vw, 18px);
   width: min(25vw,250px);
 }
@@ -252,7 +257,7 @@ figcaption{
 
 .photo-container > p {
   text-align: justify;
-  font-size: min(4.5vw,24px);
+  font-size: min(5vw,28px);
   font-weight: 700;
   margin: 0em;
   margin-bottom: 2em;
@@ -300,7 +305,7 @@ figcaption{
 
 .coding-container p {
   text-align: justify;
-  font-size: min(4vw,24px);
+  font-size: min(5vw,28px);
   font-weight: 700;
   margin-left: 1em;
   margin-bottom: 1em;
@@ -308,7 +313,6 @@ figcaption{
 }
 .coming-soon{
   width: 100%;
-  flex-grow: 0;
   justify-content: center;
   text-align: center;
   border: 5px dashed grey;
@@ -316,7 +320,7 @@ figcaption{
 }
 
 .coming-soon p {
-  text-align: center;
+  text-align: center; 
   margin: 2em;
   font-size: min(6vw, 30px);
 }
@@ -348,4 +352,54 @@ figcaption{
   background-color: rgb(246, 242, 200);
   align-content: center;
   font-size: small;
+}
+
+.query-container{
+  width: 90%; 
+  margin: 0 auto;
+  color: var(--dark);
+  font-weight: 300;
+  font-family: 'Cormorant Garamond', serif;
+  margin-top: min(3vw,40px);
+  /* text-align: center; */
+}
+
+.query-container form{
+  /* margin: auto auto; */
+  width: 100%;
+  /* text-align: center; */
+  margin-left: min(8vw, 50px);
+}
+
+.query-container h1{
+  font-size: min(8vw, 50px);
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-weight: 900;
+}
+.query-container input, .query-container textarea{
+  display: block;
+  border: 2px solid var(--dark);
+  font-size: min(4vw, 28px);
+  width: max(70%,200px);
+  margin-bottom: 10px;
+  padding: 3px
+}
+
+.query-container textarea{
+  min-height: 8em;
+}
+
+.query-container button{
+  border: 2px solid var(--dark);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: min(5vw, 28px);
+  position: relative;
+  width: min(35vw, 300px);
+}
+
+.query-container button:hover{
+  box-shadow: 0px 0px 10px 0.2px var(--dark);
 }

@@ -5,13 +5,21 @@ import Photo from './component/Photo';
 import Music from './component/Music';
 import Coding from './component/Coding';
 import Contact from './component/Contact';
+import Query from './component/Query';
 import { ChakraProvider } from '@chakra-ui/react'
 import { TriangleUpIcon } from '@chakra-ui/icons'
 
 function App() {
   const [isShownMenu, setisShowMenu] = useState(false)
-  
-  const handleScroll = (ref) => {
+  const menuRef = useRef(null)
+  const closeOpenMenus = (e)=>{
+    if(menuRef.current && isShownMenu && !menuRef.current.contains(e.target)){
+      setisShowMenu(false)
+    }
+}
+document.addEventListener('mousedown',closeOpenMenus)
+
+const handleScroll = (ref) => {
       ref.current?.scrollIntoView({
         behavior: 'smooth',
         
@@ -22,8 +30,8 @@ function App() {
   const musicRef = useRef(null);
   const photoRef = useRef(null);
   const codingRef = useRef(null);
-  const contactRef = useRef(null)
-
+  const contactRef = useRef(null);
+  const queryRef = useRef(null);
 
   const [isShownTopBtn, setisShownTopBtn] = useState(false)
 
@@ -58,23 +66,25 @@ function App() {
           <div className="menu-icon-shape"></div>
         </div>
        
-        <ul className={isShownMenu?"shown-nav-menu":"hidden-nav-menu"}>
+        <ul ref={menuRef} className={isShownMenu?"shown-nav-menu":"hidden-nav-menu"}>
             <li id="about" onClick={()=>{handleScroll(aboutRef)}}>About Anthony</li>
             <li id="music" onClick={()=>{handleScroll(musicRef)}}>As a Musician</li>
             <li id="photo" onClick={()=>{handleScroll(photoRef)}}>As a Photography</li>
             <li id="coding" onClick={()=>{handleScroll(codingRef)}}>As a Web Developer</li>
             <li id="contact" onClick={()=>{handleScroll(contactRef)}}>Contact</li>
+            {/* <li id="query" onClick={()=>{handleScroll(queryRef)}}>Query Form</li> */}
         </ul>
       </nav>
       <div className="home-page-container">
         <h1 id="title">Anthony <br></br>Chan</h1>
         <p>Musician | Photographer | Web Developer</p>
-        <p>Discovery more:</p>
+        {/* <p>Discovery more:</p>
         <div className="icon-container">
-          <img src="instagramIcon.png" alt="InstagramIcon"></img>
-          <img src="githubIcon.png" alt="InstagramIcon"></img>
-          <img src="linkedinIcon.png" alt="InstagramIcon"></img>
-        </div>
+        <img src="instagramIcon.png" alt="InstagramIcon" />
+        <img src="githubIcon.png" alt="InstagramIcon"></img>
+          <img src="linkedinIcon.png" alt="InstagramIcon"></img> */}
+        {/* </div> */}
+        
       </div>
     </main>
         </div>
@@ -116,7 +126,10 @@ function App() {
 {/* divider */}
 <div className="divider"></div>
 
+{/* <Query forwardedRef={queryRef}/> */}
 
+{/* divider */}
+{/* <div className="divider"></div> */}
     </>
   )
     
